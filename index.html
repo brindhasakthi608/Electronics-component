@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ElectroLearn - Electronic Component Identifier</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <h1>⚡ ElectroLearn</h1>
+    <p>Electronic Component Identifier & Learning Hub</p>
+</header>
+
+<nav>
+    <button onclick="showSection('home')">Home</button>
+    <button onclick="showSection('components')">Components</button>
+    <button onclick="showSection('calculator')">Ohm's Law</button>
+    <button onclick="showSection('resistor')">Resistor Calculator</button>
+    <button onclick="showSection('quiz')">Quiz</button>
+    <button onclick="showSection('compare')">Compare</button>
+    <button onclick="showSection('favorites')">Favourites ⭐</button>
+</nav>
+
+<main>
+
+    <!-- HOME -->
+    <section id="home" class="section active">
+        <div class="hero">
+            <h2>Welcome to ElectroLearn!</h2>
+            <p>Learn electronic components in a simple way.</p>
+            <button onclick="showSection('components')">
+                Explore Components
+            </button>
+        </div>
+
+        <div class="stats">
+            <div class="card">
+                <h2>8</h2>
+                <p>Electronic Components</p>
+            </div>
+            <div class="card">
+                <h2>2</h2>
+                <p>Calculators</p>
+            </div>
+            <div class="card">
+                <h2>5</h2>
+                <p>Quiz Questions</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>About This Project</h2>
+            <p>
+                This software helps ECE students understand electronic
+                components, calculate electrical values, compare components
+                and practice electronics questions.
+            </p>
+        </div>
+    </section>
+
+    <!-- COMPONENTS -->
+    <section id="components" class="section">
+        <h2>Electronic Components</h2>
+
+        <input id="search" type="text"
+               placeholder="Search components..."
+               oninput="displayComponents()">
+
+        <div id="componentList" class="grid"></div>
+    </section>
+
+    <!-- OHM'S LAW -->
+    <section id="calculator" class="section">
+        <h2>Ohm's Law Calculator</h2>
+
+        <div class="card">
+            <label>Voltage (V)</label>
+            <input type="number" id="voltage" placeholder="Enter voltage">
+
+            <label>Current (A)</label>
+            <input type="number" id="current" placeholder="Enter current">
+
+            <label>Resistance (Ω)</label>
+            <input type="number" id="resistance" placeholder="Enter resistance">
+
+            <button onclick="calculateOhm()">Calculate</button>
+            <button onclick="clearOhm()">Clear</button>
+
+            <p id="ohmResult" class="result"></p>
+            <p>Enter any two positive values to calculate the third.</p>
+        </div>
+    </section>
+
+    <!-- RESISTOR CALCULATOR -->
+    <section id="resistor" class="section">
+        <h2>Resistor Color Code Calculator</h2>
+
+        <div class="card">
+            <label>First Band</label>
+            <select id="band1"></select>
+
+            <label>Second Band</label>
+            <select id="band2"></select>
+
+            <label>Multiplier Band</label>
+            <select id="multiplier"></select>
+
+            <button onclick="calculateResistor()">Calculate</button>
+
+            <p id="resistorResult" class="result"></p>
+        </div>
+    </section>
+
+    <!-- QUIZ -->
+    <section id="quiz" class="section">
+        <h2>Electronics Quiz</h2>
+
+        <div class="card">
+            <h3 id="question"></h3>
+            <div id="answers"></div>
+            <p id="quizResult" class="result"></p>
+            <button id="nextButton" onclick="nextQuestion()">
+                Next Question
+            </button>
+        </div>
+    </section>
+
+    <!-- COMPARE -->
+    <section id="compare" class="section">
+        <h2>Compare Components</h2>
+
+        <div class="card">
+            <label>First Component</label>
+            <select id="component1"></select>
+
+            <label>Second Component</label>
+            <select id="component2"></select>
+
+            <button onclick="compareComponents()">Compare</button>
+
+            <div id="compareResult"></div>
+        </div>
+    </section>
+
+    <!-- FAVOURITES -->
+    <section id="favorites" class="section">
+        <h2>Favourite Components ⭐</h2>
+        <div id="favoriteList" class="grid"></div>
+    </section>
+
+</main>
+
+<footer>
+    <p>ElectroLearn | ECE Student Project</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
